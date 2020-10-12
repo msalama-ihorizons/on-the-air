@@ -1,4 +1,4 @@
-package com.tiendito.bmisrmovies
+package com.bmisr.theair
 
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData

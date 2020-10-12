@@ -42,21 +42,21 @@ class TVShowApisTest {
     }
 
     @Test
-    fun testNowPlayingMovies() {
+    fun testLatestTVShows() {
         enqueueResponse("tv_shows_response.json")
         runBlocking {
-            val result = tvShowsApis.getLatestTVShows(apiKey = API_KEY)
+            val result = tvShowsApis.getOnTheAirTVShows(apiKey = API_KEY)
 
             Assert.assertThat(result.body()?.tvShows?.size, CoreMatchers.`is`(20))
-            val movie1 = result.body()?.tvShows?.get(0)
-            Assert.assertThat(movie1?.name, CoreMatchers.`is`("The Walking Dead: World Beyond"))
+            val tvShow = result.body()?.tvShows?.get(0)
+            Assert.assertThat(tvShow?.name, CoreMatchers.`is`("The Walking Dead: World Beyond"))
 
         }
 
     }
 
     @Test
-    fun testMovieCast() {
+    fun testTVShowCast() {
         enqueueResponse("cast_response.json")
         runBlocking {
             val result = tvShowsApis.getTvShowCast(tvShowId = 550, apiKey = API_KEY)

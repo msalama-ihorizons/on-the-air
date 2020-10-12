@@ -1,4 +1,4 @@
-package com.tiendito.bmisrmovies.repository
+package com.bmisr.theair.repository
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
@@ -10,10 +10,8 @@ import com.bmisr.theair.api.response.TVShowsResponse
 import com.bmisr.theair.db.TVShowsDao
 import com.bmisr.theair.db.TVShowsDatabase
 import com.bmisr.theair.model.Resource
-import com.bmisr.theair.repository.SessionRepository
-import com.bmisr.theair.repository.TVShowsRepository
 import com.bmisr.theair.utils.Constants.API_KEY
-import com.tiendito.bmisrmovies.mock
+import com.bmisr.theair.mock
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Rule
@@ -49,15 +47,15 @@ class TVShowsRepositoryTest {
 
 
     @Test
-    fun loadPlayingNowMoviesTest() {
+    fun loadTVShowsTest() {
         val observer = mock<Observer<Resource<List<TVShow>>>>()
 
-        val moviesResponse = TVShowsResponse(emptyList())
+        val tvShowResponse = TVShowsResponse(emptyList())
 
-        val apiResponse = Response.success(moviesResponse)
+        val apiResponse = Response.success(tvShowResponse)
 
         runBlocking {
-            Mockito.`when`(service.getLatestTVShows(apiKey = API_KEY)).thenReturn(apiResponse)
+            Mockito.`when`(service.getOnTheAirTVShows(apiKey = API_KEY)).thenReturn(apiResponse)
 
             tvShowsRepository.loadLatestTVShows().observeForever(observer)
 
@@ -69,12 +67,12 @@ class TVShowsRepositoryTest {
 
     @Test
     fun isFavourite_Return_True_Test() {
-        val movie = MutableLiveData<TVShow>()
+        val tvShow = MutableLiveData<TVShow>()
         val observer = mock<Observer<Boolean>>()
 
-        movie.postValue(createMovie(550))
+        tvShow.postValue(createTVShow(550))
 
-        Mockito.`when`(dao.loadTVShowById(550)).thenReturn(movie)
+        Mockito.`when`(dao.loadTVShowById(550)).thenReturn(tvShow)
 
         tvShowsRepository.isFavouriteTVShow(550).observeForever(observer)
 
@@ -84,12 +82,12 @@ class TVShowsRepositoryTest {
 
     @Test
     fun isFavourite_Return_False_Test() {
-        val movie = MutableLiveData<TVShow>()
+        val tvShow = MutableLiveData<TVShow>()
         val observer = mock<Observer<Boolean>>()
 
-        movie.postValue(null)
+        tvShow.postValue(null)
 
-        Mockito.`when`(dao.loadTVShowById(550)).thenReturn(movie)
+        Mockito.`when`(dao.loadTVShowById(550)).thenReturn(tvShow)
 
         tvShowsRepository.isFavouriteTVShow(550).observeForever(observer)
 
@@ -101,22 +99,22 @@ class TVShowsRepositoryTest {
     fun loadAllFavouritesTest() {
         val observer = mock<Observer<Resource<List<TVShow>>>>()
 
-        val movies = MutableLiveData<List<TVShow>>()
+        val tvShows = MutableLiveData<List<TVShow>>()
 
-        Mockito.`when`(dao.loadTVShows()).thenReturn(movies)
+        Mockito.`when`(dao.loadTVShows()).thenReturn(tvShows)
 
         tvShowsRepository.loadFavouriteTVShows().observeForever(observer)
 
         Mockito.verify(observer).onChanged(Resource.loading(null))
 
-        movies.postValue(emptyList())
+        tvShows.postValue(emptyList())
 
         Mockito.verify(observer).onChanged(Resource.complete(null))
         Mockito.verify(observer).onChanged(Resource.success(emptyList()))
 
     }
 
-    private fun createMovie(id: Int) : TVShow {
+    private fun createTVShow(id: Int) : TVShow {
         return TVShow(
             id = id,
             name = "breaking bad",

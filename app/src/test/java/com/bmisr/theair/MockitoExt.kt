@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.tiendito.bmisrmovies
+package com.bmisr.theair
 
 import org.mockito.ArgumentCaptor
 import org.mockito.Mockito

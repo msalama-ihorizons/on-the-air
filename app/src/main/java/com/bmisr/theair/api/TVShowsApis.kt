@@ -8,7 +8,7 @@ import retrofit2.http.*
 interface TVShowsApis {
 
     @GET("tv/on_the_air")
-    suspend fun getLatestTVShows(@Query("api_key") apiKey: String): Response<TVShowsResponse>
+    suspend fun getOnTheAirTVShows(@Query("api_key") apiKey: String): Response<TVShowsResponse>
 
     @GET("tv/{tv_id}")
     suspend fun getTVShowDetails(

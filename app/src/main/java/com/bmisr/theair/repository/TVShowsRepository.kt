@@ -3,11 +3,11 @@ package com.bmisr.theair.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.liveData
+import com.bmisr.theair.BuildConfig
 import com.bmisr.theair.api.response.TVShow
 import com.bmisr.theair.api.TVShowsApis
 import com.bmisr.theair.db.TVShowsDao
 import com.bmisr.theair.model.Resource
-import com.bmisr.theair.utils.Constants.API_KEY
 import com.bmisr.theair.api.response.Cast
 import com.bmisr.theair.api.request.RateRequest
 import com.bmisr.theair.api.response.RateResponse
@@ -26,7 +26,7 @@ class TVShowsRepository @Inject constructor(
             emit(Resource.loading(null))
 
             try {
-                val result = tvShowsApis.getLatestTVShows(apiKey = API_KEY)
+                val result = tvShowsApis.getOnTheAirTVShows(apiKey = BuildConfig.API_KEY)
 
                 emit(Resource.complete(null))
 
@@ -49,7 +49,7 @@ class TVShowsRepository @Inject constructor(
             emit(Resource.loading(null))
 
             try {
-                val result = tvShowsApis.getSimilarTVShows(tvShowId = tvShowId, apiKey = API_KEY)
+                val result = tvShowsApis.getSimilarTVShows(tvShowId = tvShowId, apiKey = BuildConfig.API_KEY)
 
                 emit(Resource.complete(null))
 
@@ -74,7 +74,7 @@ class TVShowsRepository @Inject constructor(
             emit(Resource.loading(null))
 
             try {
-                val result = tvShowsApis.getTVShowDetails(tvShowId = tvShowId, apiKey = API_KEY)
+                val result = tvShowsApis.getTVShowDetails(tvShowId = tvShowId, apiKey = BuildConfig.API_KEY)
 
                 emit(Resource.complete(null))
 
@@ -99,7 +99,7 @@ class TVShowsRepository @Inject constructor(
             emit(Resource.loading(null))
 
             try {
-                val result = tvShowsApis.getTvShowCast(tvShowId = tvShowId, apiKey = API_KEY)
+                val result = tvShowsApis.getTvShowCast(tvShowId = tvShowId, apiKey = BuildConfig.API_KEY)
 
                 emit(Resource.complete(null))
 
@@ -122,7 +122,7 @@ class TVShowsRepository @Inject constructor(
             emit(Resource.loading(null))
 
             if (sessionRepository.isExpired()) {
-                val sessionResult = tvShowsApis.generateGuestSession(apiKey = API_KEY)
+                val sessionResult = tvShowsApis.generateGuestSession(apiKey = BuildConfig.API_KEY)
                 if (sessionResult.isSuccessful)
                     sessionRepository.saveGuestSession(sessionResult.body()?.guestSessionId)
             }
@@ -131,7 +131,7 @@ class TVShowsRepository @Inject constructor(
 
                 val result = tvShowsApis.rateTVShow(
                     tvShowId = tvShowId ?: -1,
-                    apiKey = API_KEY,
+                    apiKey = BuildConfig.API_KEY,
                     guestSessionId = sessionRepository.getGuestSession() ?: "",
                     rateRequest = RateRequest(
                         ratingValue

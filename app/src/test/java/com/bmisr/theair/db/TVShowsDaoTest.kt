@@ -5,7 +5,7 @@ import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.bmisr.theair.api.response.TVShow
-import com.tiendito.bmisrmovies.getOrAwaitValue
+import com.bmisr.theair.getOrAwaitValue
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.asExecutor
 import kotlinx.coroutines.runBlocking
@@ -42,39 +42,39 @@ class TVShowsDaoTest {
     }
 
     @Test
-   fun insertMovieTest() {
-       val movie  = createMovie(550)
+   fun insertTVShowTest() {
+       val tvShow  = createTVShow(550)
        runBlocking {
-           tvShowsDatabase.tvShowsDao().insert(movie)
-           val movies =  tvShowsDatabase.tvShowsDao().loadTVShows()
-            assert(movies.getOrAwaitValue().isNotEmpty())
+           tvShowsDatabase.tvShowsDao().insert(tvShow)
+           val tvShows =  tvShowsDatabase.tvShowsDao().loadTVShows()
+            assert(tvShows.getOrAwaitValue().isNotEmpty())
        }
    }
 
     @Test
-    fun loadMovieByIdTest() {
-        val movieList  = listOf(createMovie(550), createMovie(432), createMovie(443))
+    fun loadTVShowByIdTest() {
+        val tvShowsList  = listOf(createTVShow(550), createTVShow(432), createTVShow(443))
         runBlocking {
-            tvShowsDatabase.tvShowsDao().insertTVShows(movieList)
-            val movies =  tvShowsDatabase.tvShowsDao().loadTVShowById(432)
-            assertThat(movies.getOrAwaitValue()?.id, `is`(432))
+            tvShowsDatabase.tvShowsDao().insertTVShows(tvShowsList)
+            val tvShows =  tvShowsDatabase.tvShowsDao().loadTVShowById(432)
+            assertThat(tvShows.getOrAwaitValue()?.id, `is`(432))
         }
     }
 
     @Test
-    fun deleteMovieTest() {
-        val movieList  = listOf(createMovie(550), createMovie(432), createMovie(443))
+    fun deleteTVShowTest() {
+        val tvShowsList  = listOf(createTVShow(550), createTVShow(432), createTVShow(443))
         runBlocking {
-            tvShowsDatabase.tvShowsDao().insertTVShows(movieList)
+            tvShowsDatabase.tvShowsDao().insertTVShows(tvShowsList)
             tvShowsDatabase.tvShowsDao().deleteTVShow(550)
 
-            val movies =  tvShowsDatabase.tvShowsDao().loadTVShowById(550)
-            assert(movies.getOrAwaitValue() == null)
+            val tvShows =  tvShowsDatabase.tvShowsDao().loadTVShowById(550)
+            assert(tvShows.getOrAwaitValue() == null)
         }
     }
 
     
-    private fun createMovie(id: Int) : TVShow {
+    private fun createTVShow(id: Int) : TVShow {
         return TVShow(
             id = id,
             name = "breaking bad",

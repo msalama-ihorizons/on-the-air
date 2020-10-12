@@ -1,9 +1,8 @@
-package com.bmisr.theair.ui.moviedetails
+package com.bmisr.theair.ui.tvshowdetails
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.SavedStateHandle
 import com.bmisr.theair.repository.TVShowsRepository
-import com.bmisr.theair.ui.tvshowdetails.TVShowDetailsActivity
 import com.bmisr.theair.ui.tvshowdetails.TVShowDetailsActivity.Companion.EXTRA_TV_SHOW_ID
 import org.junit.Rule
 import org.junit.Test
