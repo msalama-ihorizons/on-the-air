@@ -1,4 +1,4 @@
-package com.bmisr.theair.api
+package com.bmisr.theair.api.request
 
 /**
  * Created by Mohamed Salama on 10/12/2020.

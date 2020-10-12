@@ -1,11 +1,13 @@
 package com.bmisr.theair.api
 
+import com.bmisr.theair.api.request.RateRequest
+import com.bmisr.theair.api.response.*
 import retrofit2.Response
 import retrofit2.http.*
 
 interface TVShowsApis {
 
-    @GET("/tv/latest")
+    @GET("tv/on_the_air")
     suspend fun getLatestTVShows(@Query("api_key") apiKey: String): Response<TVShowsResponse>
 
     @GET("tv/{tv_id}")
@@ -20,7 +22,7 @@ interface TVShowsApis {
         @Query("api_key") apiKey: String
     ): Response<CreditsResponse>
 
-    @GET("/tv/{tv_id}/recommendations")
+    @GET("tv/{tv_id}/recommendations")
     suspend fun getSimilarTVShows(
         @Path("tv_id") tvShowId: Int,
         @Query("api_key") apiKey: String

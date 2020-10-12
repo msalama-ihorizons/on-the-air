@@ -1,4 +1,4 @@
-package com.bmisr.theair.api
+package com.bmisr.theair.api.response
 
 import com.google.gson.annotations.SerializedName
 

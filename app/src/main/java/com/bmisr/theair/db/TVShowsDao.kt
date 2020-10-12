@@ -5,7 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.bmisr.theair.api.TVShow
+import com.bmisr.theair.api.response.TVShow
 
 
 @Dao

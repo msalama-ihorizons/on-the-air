@@ -1,8 +1,8 @@
 package com.bmisr.theair.db
 
 import androidx.room.TypeConverter
-import com.bmisr.theair.api.Genre
-import com.bmisr.theair.api.Network
+import com.bmisr.theair.api.response.Genre
+import com.bmisr.theair.api.response.Network
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 

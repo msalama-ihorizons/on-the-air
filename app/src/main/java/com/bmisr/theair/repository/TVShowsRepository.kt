@@ -3,14 +3,14 @@ package com.bmisr.theair.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.liveData
-import com.bmisr.theair.api.TVShow
+import com.bmisr.theair.api.response.TVShow
 import com.bmisr.theair.api.TVShowsApis
 import com.bmisr.theair.db.TVShowsDao
 import com.bmisr.theair.model.Resource
 import com.bmisr.theair.utils.Constants.API_KEY
-import com.bmisr.theair.api.Cast
-import com.bmisr.theair.api.RateRequest
-import com.bmisr.theair.api.RateResponse
+import com.bmisr.theair.api.response.Cast
+import com.bmisr.theair.api.request.RateRequest
+import com.bmisr.theair.api.response.RateResponse
 import javax.inject.Inject
 
 class TVShowsRepository @Inject constructor(
@@ -133,7 +133,9 @@ class TVShowsRepository @Inject constructor(
                     tvShowId = tvShowId ?: -1,
                     apiKey = API_KEY,
                     guestSessionId = sessionRepository.getGuestSession() ?: "",
-                    rateRequest = RateRequest(ratingValue)
+                    rateRequest = RateRequest(
+                        ratingValue
+                    )
                 )
 
                 if (result.isSuccessful)

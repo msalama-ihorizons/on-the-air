@@ -1,4 +1,4 @@
-package com.bmisr.theair.api
+package com.bmisr.theair.api.response
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -26,5 +26,4 @@ data class TVShow(
     @SerializedName("homepage") val homepage: String?,
     @SerializedName("genres") val genres: List<Genre>,
     @SerializedName("networks") val networks: List<Network>
-
 )
