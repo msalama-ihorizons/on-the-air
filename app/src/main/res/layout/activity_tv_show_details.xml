@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <androidx.appcompat.widget.AppCompatImageView xmlns:android="http://schemas.android.com/apk/res/android"
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/tvShowPoster"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
@@ -60,6 +60,12 @@
                 android:layout_margin="5dp" />
 
             <TextView
+                android:id="@+id/tvShowEpisodeNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp" />
+
+            <TextView
                 android:id="@+id/tvShowGenres"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -81,8 +87,8 @@
                 android:id="@+id/tvShowHomePageUrl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autoLink="web"
-                android:layout_margin="5dp" />
+                android:layout_margin="5dp"
+                android:autoLink="web" />
 
             <fragment
                 android:id="@+id/cast_fragment"

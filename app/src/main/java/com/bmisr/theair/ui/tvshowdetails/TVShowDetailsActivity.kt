@@ -84,6 +84,7 @@ class TVShowDetailsActivity : AppCompatActivity() {
                         Glide.with(this).load(posterUrl)
                             .into(tvShowPoster)
                         tvShowTitle.text = tvShow.name
+                        tvShowEpisodeNumber.text = getString(R.string.tv_show_episode_number, tvShow.episodeNumber)
                         tvShowHomePageUrl.text = tvShow.homepage
                         tvShowOverView.text = tvShow.overview
                         tvShowVoteAverage.text = tvShow.voteAverage.toString()

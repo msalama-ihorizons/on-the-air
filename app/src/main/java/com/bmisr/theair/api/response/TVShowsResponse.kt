@@ -19,7 +19,7 @@ data class TVShow(
     @SerializedName("name") val name: String,
     @SerializedName("first_air_date") val firstAirDate: String,
     @SerializedName("vote_average") val voteAverage: Double,
-    @SerializedName("episode_number") val episodeNumber: Int,
+    @SerializedName("number_of_episodes") val episodeNumber: Int,
     @SerializedName("poster_path") val posterPath: String,
     @SerializedName("backdrop_path") val backdropPath: String?,
     @SerializedName("overview") val overview: String,
