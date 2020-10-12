@@ -1,7 +1,7 @@
-package com.tiendito.bmisrmovies.api
+package com.bmisr.theair.api
 
 /**
- * Created by Mohamed Salama on 9/6/2020.
+ * Created by Mohamed Salama on 10/12/2020.
  */
 
 data class RateRequest(val value: Float)

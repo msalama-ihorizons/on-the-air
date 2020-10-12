@@ -1,4 +1,4 @@
-package com.tiendito.bmisrmovies.api
+package com.bmisr.theair.api
 
 import com.google.gson.annotations.SerializedName
 
