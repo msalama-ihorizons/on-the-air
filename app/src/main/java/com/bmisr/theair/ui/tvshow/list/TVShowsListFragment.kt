@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.fragment_tv_shows_list.*
  */
 open class TVShowsListFragment: Fragment()  {
 
-    private val tvShowsViewModel: TVShowsViewModel by activityViewModels()
+    protected val tvShowsViewModel: TVShowsViewModel by activityViewModels()
     protected lateinit var tvShowsAdapter: TVShowsAdapter
 
     companion object {

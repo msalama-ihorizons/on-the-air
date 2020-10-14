@@ -15,8 +15,6 @@ import kotlinx.android.synthetic.main.fragment_tv_shows_list.*
 
 class FavouritesTVShowsFragment: TVShowsListFragment() {
 
-    private val tvShowsViewModel: TVShowsViewModel by activityViewModels()
-
     override fun handleObservers() {
         tvShowsViewModel.favTvShowsListLiveData.observe(viewLifecycleOwner, Observer { resources ->
             when (resources.status) {
