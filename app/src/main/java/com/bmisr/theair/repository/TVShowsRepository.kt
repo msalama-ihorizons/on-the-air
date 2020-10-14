@@ -26,7 +26,7 @@ class TVShowsRepository @Inject constructor(
             emit(Resource.loading(null))
 
             try {
-                val result = tvShowsApis.getOnTheAirTVShows(apiKey = BuildConfig.API_KEY)
+                val result = tvShowsApis.getOnTheAirTVShows()
 
                 emit(Resource.complete(null))
 
@@ -49,7 +49,7 @@ class TVShowsRepository @Inject constructor(
             emit(Resource.loading(null))
 
             try {
-                val result = tvShowsApis.getSimilarTVShows(tvShowId = tvShowId, apiKey = BuildConfig.API_KEY)
+                val result = tvShowsApis.getSimilarTVShows(tvShowId = tvShowId)
 
                 emit(Resource.complete(null))
 
@@ -74,7 +74,7 @@ class TVShowsRepository @Inject constructor(
             emit(Resource.loading(null))
 
             try {
-                val result = tvShowsApis.getTVShowDetails(tvShowId = tvShowId, apiKey = BuildConfig.API_KEY)
+                val result = tvShowsApis.getTVShowDetails(tvShowId = tvShowId)
 
                 emit(Resource.complete(null))
 
@@ -99,7 +99,7 @@ class TVShowsRepository @Inject constructor(
             emit(Resource.loading(null))
 
             try {
-                val result = tvShowsApis.getTvShowCast(tvShowId = tvShowId, apiKey = BuildConfig.API_KEY)
+                val result = tvShowsApis.getTvShowCast(tvShowId = tvShowId)
 
                 emit(Resource.complete(null))
 
@@ -122,7 +122,7 @@ class TVShowsRepository @Inject constructor(
             emit(Resource.loading(null))
 
             if (sessionRepository.isExpired()) {
-                val sessionResult = tvShowsApis.generateGuestSession(apiKey = BuildConfig.API_KEY)
+                val sessionResult = tvShowsApis.generateGuestSession()
                 if (sessionResult.isSuccessful)
                     sessionRepository.saveGuestSession(sessionResult.body()?.guestSessionId)
             }
@@ -131,7 +131,6 @@ class TVShowsRepository @Inject constructor(
 
                 val result = tvShowsApis.rateTVShow(
                     tvShowId = tvShowId ?: -1,
-                    apiKey = BuildConfig.API_KEY,
                     guestSessionId = sessionRepository.getGuestSession() ?: "",
                     rateRequest = RateRequest(
                         ratingValue
