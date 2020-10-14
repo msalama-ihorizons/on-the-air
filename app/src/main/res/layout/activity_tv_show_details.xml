@@ -92,14 +92,14 @@
 
             <fragment
                 android:id="@+id/cast_fragment"
-                android:name="com.bmisr.theair.ui.tvshowdetails.cast.TVShowCastFragment"
+                android:name="com.bmisr.theair.ui.tvshow.details.cast.TVShowCastFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:layout="@layout/fragment_tv_show_cast" />
 
             <fragment
                 android:id="@+id/networks_Fragment"
-                android:name="com.bmisr.theair.ui.tvshowdetails.networks.TVShowNetworksFragment"
+                android:name="com.bmisr.theair.ui.tvshow.details.networks.TVShowNetworksFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:layout="@layout/fragment_tv_show_networks" />
@@ -113,7 +113,7 @@
 
             <fragment
                 android:id="@+id/similar_tv_shows_fragment"
-                android:name="com.bmisr.theair.ui.tvshowdetails.similar.SimilarTVShowsFragment"
+                android:name="com.bmisr.theair.ui.tvshow.details.similar.SimilarTVShowsFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:layout="@layout/fragment_tv_shows_list" />

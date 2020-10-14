@@ -1,4 +1,4 @@
-package com.bmisr.theair.ui.tvshowslist
+package com.bmisr.theair.ui.tvshow.list
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,8 +12,8 @@ import com.bmisr.theair.R
 import com.bmisr.theair.model.Status
 import com.irozon.sneaker.Sneaker
 import com.leodroidcoder.genericadapter.OnRecyclerItemClickListener
-import com.bmisr.theair.ui.adpater.TVShowsAdapter
-import com.bmisr.theair.ui.tvshowdetails.TVShowDetailsActivity
+import com.bmisr.theair.ui.tvshow.adapter.TVShowsAdapter
+import com.bmisr.theair.ui.tvshow.details.TVShowDetailsActivity
 import kotlinx.android.synthetic.main.fragment_tv_shows_list.*
 
 /**

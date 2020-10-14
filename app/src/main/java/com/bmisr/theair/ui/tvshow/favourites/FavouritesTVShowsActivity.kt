@@ -1,4 +1,4 @@
-package com.bmisr.theair.ui.favourites
+package com.bmisr.theair.ui.tvshow.favourites
 
 import android.content.Context
 import android.content.Intent

@@ -1,12 +1,12 @@
-package com.bmisr.theair.ui.favourites
+package com.bmisr.theair.ui.tvshow.favourites
 
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import com.bmisr.theair.model.Status
 import com.irozon.sneaker.Sneaker
-import com.bmisr.theair.ui.tvshowslist.TVShowsListFragment
-import com.bmisr.theair.ui.tvshowslist.TVShowsViewModel
+import com.bmisr.theair.ui.tvshow.list.TVShowsListFragment
+import com.bmisr.theair.ui.tvshow.list.TVShowsViewModel
 import kotlinx.android.synthetic.main.fragment_tv_shows_list.*
 
 /**

@@ -1,11 +1,11 @@
-package com.bmisr.theair.ui.tvshowdetails
+package com.bmisr.theair.ui.tvshow.details
 
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.bmisr.theair.api.response.TVShow
 import com.bmisr.theair.repository.TVShowsRepository
-import com.bmisr.theair.ui.tvshowdetails.TVShowDetailsActivity.Companion.EXTRA_TV_SHOW_ID
+import com.bmisr.theair.ui.tvshow.details.TVShowDetailsActivity.Companion.EXTRA_TV_SHOW_ID
 import kotlinx.coroutines.launch
 
 class TVShowDetailsViewModel @ViewModelInject constructor(

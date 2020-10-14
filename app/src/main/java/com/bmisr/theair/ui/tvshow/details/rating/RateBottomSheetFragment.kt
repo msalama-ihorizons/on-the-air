@@ -1,4 +1,4 @@
-package com.bmisr.theair.ui.tvshowdetails.rating
+package com.bmisr.theair.ui.tvshow.details.rating
 
 import android.os.Bundle
 import android.view.InflateException

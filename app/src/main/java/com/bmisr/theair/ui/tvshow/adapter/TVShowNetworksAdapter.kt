@@ -1,4 +1,4 @@
-package com.bmisr.theair.ui.adpater
+package com.bmisr.theair.ui.tvshow.adapter
 
 import android.content.Context
 import android.view.View

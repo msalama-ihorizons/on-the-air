@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/favourites_fragment"
-        android:name="com.bmisr.theair.ui.favourites.FavouritesTVShowsFragment"
+        android:name="com.bmisr.theair.ui.tvshow.favourites.FavouritesTVShowsFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout="@layout/fragment_tv_shows_list"/>

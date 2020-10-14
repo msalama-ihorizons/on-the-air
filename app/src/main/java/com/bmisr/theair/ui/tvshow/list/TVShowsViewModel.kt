@@ -1,4 +1,4 @@
-package com.bmisr.theair.ui.tvshowslist
+package com.bmisr.theair.ui.tvshow.list
 
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject

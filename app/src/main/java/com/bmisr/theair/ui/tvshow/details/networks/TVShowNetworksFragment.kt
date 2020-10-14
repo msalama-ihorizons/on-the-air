@@ -1,4 +1,4 @@
-package com.bmisr.theair.ui.tvshowdetails.cast
+package com.bmisr.theair.ui.tvshow.details.networks
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,26 +9,23 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import com.bmisr.theair.R
 import com.bmisr.theair.model.Status
+import com.bmisr.theair.ui.tvshow.adapter.TVShowNetworksAdapter
+import com.bmisr.theair.ui.tvshow.details.TVShowDetailsViewModel
 import com.leodroidcoder.genericadapter.OnRecyclerItemClickListener
-import com.bmisr.theair.ui.adpater.TVShowCastAdapter
-import com.bmisr.theair.ui.tvshowdetails.TVShowDetailsViewModel
-import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_tv_show_cast.*
+import kotlinx.android.synthetic.main.fragment_tv_show_networks.*
 
 /**
  * Created by Mohamed Salama on 10/12/2020.
  */
+class TVShowNetworksFragment : Fragment() {
 
-@AndroidEntryPoint
-class TVShowCastFragment: Fragment() {
-
-    private lateinit var tvShowCastAdapter: TVShowCastAdapter
+    private lateinit var tvShowNetworksAdapter: TVShowNetworksAdapter
     private val tvShowDetailsViewModel: TVShowDetailsViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        tvShowCastAdapter = TVShowCastAdapter(
+        tvShowNetworksAdapter = TVShowNetworksAdapter(
             context,
             OnRecyclerItemClickListener {
 
@@ -40,21 +37,19 @@ class TVShowCastFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_tv_show_cast, container, false)
+        return inflater.inflate(R.layout.fragment_tv_show_networks, container, false)
 
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        tvShowCastRV.adapter = tvShowCastAdapter
+        tvShowNetworksRV.adapter = tvShowNetworksAdapter
 
-        tvShowDetailsViewModel.tvShowCastLiveData?.observe(viewLifecycleOwner, Observer { resource ->
+        tvShowDetailsViewModel.tvShowDetailsLiveData?.observe(viewLifecycleOwner, Observer { resource ->
 
             when(resource.status) {
-                Status.SUCCESS -> tvShowCastAdapter.items = resource.data
-                Status.LOADING ->  progressBar.visibility = View.VISIBLE
-                Status.COMPLETE ->  progressBar.visibility = View.GONE
+                Status.SUCCESS -> tvShowNetworksAdapter.items = resource.data?.networks
             }
         })
     }

@@ -1,4 +1,4 @@
-package com.bmisr.theair.ui.tvshowslist
+package com.bmisr.theair.ui.tvshow.list
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,7 +6,7 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import com.bmisr.theair.R
-import com.bmisr.theair.ui.favourites.FavouritesTVShowsActivity
+import com.bmisr.theair.ui.tvshow.favourites.FavouritesTVShowsActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

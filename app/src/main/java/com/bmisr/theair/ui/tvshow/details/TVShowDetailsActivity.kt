@@ -1,4 +1,4 @@
-package com.bmisr.theair.ui.tvshowdetails
+package com.bmisr.theair.ui.tvshow.details
 
 import android.content.Context
 import android.content.Intent
@@ -18,7 +18,7 @@ import com.bumptech.glide.Glide
 import com.irozon.sneaker.Sneaker
 import com.like.LikeButton
 import com.like.OnLikeListener
-import com.bmisr.theair.ui.tvshowdetails.rating.RateBottomSheetFragment
+import com.bmisr.theair.ui.tvshow.details.rating.RateBottomSheetFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_tv_show_details.*
 
